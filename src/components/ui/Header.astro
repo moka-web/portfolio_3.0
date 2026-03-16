@@ -118,7 +118,7 @@ const navLinks = [
   id="mobileMenu"
   role="navigation"
   aria-label="Menú móvil"
-  class="hidden fixed top-16 left-0 right-0 z-40
+  class="hidden fixed top-20 left-0 right-0 z-40
          bg-navy/98 backdrop-blur-md
          border-b border-gold/20
          py-7 px-8"
@@ -176,8 +176,8 @@ const navLinks = [
   </div>
 </div>
 
-<!-- Spacer: empuja el contenido debajo del header de dos filas -->
-<div class="h-[132px]" aria-hidden="true"></div>
+<!-- Spacer: h-20 en mobile (solo topbar), h-[132px] en md+ (topbar + nav) -->
+<div class="h-20 md:h-[132px]" aria-hidden="true"></div>
 
 <script>
   /* ── Mobile menu toggle ── */
