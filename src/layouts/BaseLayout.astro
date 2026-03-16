@@ -1,7 +1,7 @@
 ---
 // src/layouts/BaseLayout.astro
 // Root layout: injects global CSS, fonts meta, and wraps every page.
-
+import '../styles/global.css'  
 interface Props {
   title?: string
   description?: string
@@ -25,7 +25,8 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Global styles (Tailwind + custom) -->
-    <link rel="stylesheet" href="/src/styles/global.css" />
+    <!-- <link rel="stylesheet" href="/src/styles/global.css" /> -->
+   <!-- esto da 404 en produccion -->
   </head>
 
   <body class="bg-navy text-cream font-sans min-h-screen overflow-x-hidden">
