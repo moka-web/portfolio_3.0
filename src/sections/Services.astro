@@ -1,0 +1,91 @@
+---
+// src/components/sections/Services.astro
+
+const services = [
+  {
+    number: '01',
+    title: 'Desarrollo Web',
+    description:
+      'Aplicaciones web completas, desde la base de datos hasta la interfaz. Arquitecturas limpias, escalables y fáciles de mantener.',
+    tags: ['React', 'Next.js', 'Node.js', 'REST / GraphQL'],
+  },
+  {
+    number: '02',
+    title: 'Backend & APIs',
+    description:
+      'APIs robustas, seguras y bien documentadas. Diseño de bases de datos, autenticación, integraciones con servicios externos.',
+    tags: ['Express', 'Fastify', 'PostgreSQL', 'Prisma'],
+  },
+  {
+    number: '03',
+    title: 'UI / Frontend',
+    description:
+      'Interfaces rápidas, accesibles y con atención al detalle visual. Desde componentes reutilizables hasta design systems completos.',
+    tags: ['TypeScript', 'Tailwind', 'Astro', 'Framer Motion'],
+  },
+  {
+    number: '04',
+    title: 'Consultoría Técnica',
+    description:
+      'Revisión de arquitectura, code reviews, migración de proyectos legacy o simplemente una segunda opinión técnica calificada.',
+    tags: ['Auditoría', 'Refactoring', 'Performance', 'DevOps'],
+  },
+]
+---
+
+<section id="services" aria-label="Servicios" class="py-28 bg-navy-mid/30">
+  <div class="section-container">
+
+    <div class="divider-gold mb-20"></div>
+
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+      <div>
+        <p class="eyebrow mb-4">
+          <span class="text-cream/40 mr-2">03 /</span> Servicios
+        </p>
+        <h2 class="font-serif font-semibold text-3xl md:text-5xl leading-tight tracking-w2 uppercase">
+          ¿En qué puedo<br/>
+          <em class="not-italic text-gold">ayudarte?</em>
+        </h2>
+      </div>
+      <p class="body-text max-w-sm text-right hidden md:block">
+        Cada proyecto es diferente.<br/>
+        Adaptamos la solución a tu necesidad.
+      </p>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.05]">
+      {services.map(service => (
+        <article class="card group cursor-default bg-navy">
+
+          <!-- Number -->
+          <p class="font-serif text-5xl text-gold/20 font-semibold mb-6
+                     group-hover:text-gold/35 transition-colors duration-300 leading-none">
+            {service.number}
+          </p>
+
+          <!-- Title -->
+          <h3 class="font-serif text-xl tracking-w2 uppercase text-cream mb-3">
+            {service.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="body-text text-sm mb-6">{service.description}</p>
+
+          <!-- Tags -->
+          <ul class="flex flex-wrap gap-2 list-none m-0 p-0">
+            {service.tags.map(tag => (
+              <li>
+                <span class="skill-pill">{tag}</span>
+              </li>
+            ))}
+          </ul>
+
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

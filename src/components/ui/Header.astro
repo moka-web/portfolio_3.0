@@ -1,0 +1,229 @@
+---
+// src/components/ui/Header.astro
+// Estructura idéntica al header de la White House:
+//   Fila 1 (topbar): [MENU ☰]  [Logo centrado]  [SEARCH 🔍]
+//   Fila 2 (nav):    enlaces centrados con underline gold en hover
+
+const navLinks = [
+  { label: 'Sobre mí',  href: '#about'    },
+  { label: 'Servicios', href: '#services' },
+  { label: 'Proyectos', href: '#work'     },
+  { label: 'Stack',     href: '#stack'    },
+  { label: 'Contacto',  href: '#contact'  },
+]
+---
+
+<!-- ════════════════════════════════════════
+     FILA 1 · TOPBAR  (MENU | Logo | SEARCH)
+════════════════════════════════════════ -->
+<header
+  role="banner"
+  class="fixed top-0 left-0 right-0 z-50
+         bg-navy/90 backdrop-blur-md
+         "
+>
+
+  <!-- Top row: 3-column grid exactly like WH -->
+  <div class="grid grid-cols-[1fr_auto_1fr] items-center h-20 px-8">
+
+    <!-- Left: MENU button -->
+    <button
+      id="menuBtn"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobileMenu"
+      class="flex items-center gap-2.5 bg-transparent border-0 cursor-pointer
+             text-cream hover:text-gold transition-colors duration-300 w-fit"
+    >
+      <span class="flex flex-col gap-[5px]" aria-hidden="true">
+        <span id="bar1" class="block w-[18px] h-px bg-current transition-all duration-300"></span>
+        <span id="bar2" class="block w-[18px] h-px bg-current transition-all duration-300"></span>
+        <span id="bar3" class="block w-[18px] h-px bg-current transition-all duration-300"></span>
+      </span>
+      <span class="font-sans text-[0.68rem] uppercase tracking-[0.16em] hidden sm:inline">
+        Menu
+      </span>
+    </button>
+
+    <!-- Center: Brand / Logo -->
+    <a
+      href="#hero"
+      aria-label="Dev Portfolio – Inicio"
+      class="text-center group"
+    >
+      <p class="font-serif font-semibold text-[1.35rem] uppercase tracking-w2 leading-tight
+                text-cream group-hover:text-gold transition-colors duration-300">
+        Tomas Juarez
+      </p>
+      <p class="font-sans text-[0.52rem] uppercase tracking-w3 text-cream/55 mt-0.5">
+        Fullstack Developer
+      </p>
+    </a>
+
+    <!-- Right: SEARCH button -->
+    <div class="flex justify-end">
+      <button
+        id="searchBtn"
+        aria-label="Buscar"
+        class="flex items-center gap-2 bg-transparent border-0 cursor-pointer
+               text-cream hover:text-gold transition-colors duration-300"
+      >
+        <span class="font-sans text-[0.68rem] uppercase tracking-[0.16em] hidden sm:inline">
+          Search
+        </span>
+        <svg
+          class="w-[18px] h-[18px] stroke-current fill-none stroke-[1.75]"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- ════════════════════════════════════════
+       FILA 2 · PRIMARY NAV (enlaces centrados)
+  ════════════════════════════════════════ -->
+  <nav
+    aria-label="Navegación principal"
+    class="hidden md:block border-t border-white/[0.06]
+           bg-navy/60 backdrop-blur-sm"
+  >
+    <ul class="flex justify-center  list-none m-0 p-0">
+      {navLinks.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class="nav-link block px-[1.375rem] py-[0.8rem]
+                   font-sans text-[0.68rem] uppercase tracking-[0.18em]
+                   text-cream/80 hover:text-cream
+                   transition-colors duration-300"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+</header>
+
+<!-- ════════════════════════════════════════
+     MOBILE MENU DRAWER
+════════════════════════════════════════ -->
+<div
+  id="mobileMenu"
+  role="navigation"
+  aria-label="Menú móvil"
+  class="hidden fixed top-16 left-0 right-0 z-40
+         bg-navy/98 backdrop-blur-md
+         border-b border-gold/20
+         py-7 px-8"
+>
+  <ul class="flex flex-col gap-5 list-none m-0 p-0">
+    {navLinks.map(link => (
+      <li>
+        <a
+          href={link.href}
+          class="mobile-nav-link
+                 font-sans text-[0.75rem] uppercase tracking-[0.18em]
+                 text-cream/75 hover:text-gold
+                 transition-colors duration-300"
+        >
+          {link.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<!-- ════════════════════════════════════════
+     SEARCH OVERLAY
+════════════════════════════════════════ -->
+<div
+  id="searchOverlay"
+  class="hidden fixed top-0 left-0 right-0 bottom-0 z-[60]
+         bg-navy/95 backdrop-blur-md
+         flex items-start justify-center pt-28 px-8"
+>
+  <div class="w-full max-w-2xl">
+    <div class="flex items-center border-b border-gold/50 pb-3 gap-4">
+      <svg class="w-5 h-5 stroke-current fill-none stroke-[1.75] text-gold/60 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Buscar..."
+        class="flex-1 bg-transparent font-serif text-2xl text-cream placeholder:text-cream/25
+               focus:outline-none caret-gold"
+      />
+      <button
+        id="searchClose"
+        aria-label="Cerrar búsqueda"
+        class="font-sans text-[0.65rem] uppercase tracking-widest text-cream/40
+               hover:text-cream transition-colors duration-300 bg-transparent border-0 cursor-pointer"
+      >
+        ESC
+      </button>
+    </div>
+    <p class="font-mono text-[0.6rem] text-cream/25 mt-4 tracking-widest uppercase">
+      Presioná Enter para buscar
+    </p>
+  </div>
+</div>
+
+<!-- Spacer: empuja el contenido debajo del header de dos filas -->
+<div class="h-[132px]" aria-hidden="true"></div>
+
+<script>
+  /* ── Mobile menu toggle ── */
+  const btn  = document.getElementById('menuBtn')!
+  const menu = document.getElementById('mobileMenu')!
+  const bar1 = document.getElementById('bar1')!
+  const bar2 = document.getElementById('bar2')!
+  const bar3 = document.getElementById('bar3')!
+  let menuOpen = false
+
+  btn.addEventListener('click', () => {
+    menuOpen = !menuOpen
+    menu.classList.toggle('hidden', !menuOpen)
+    btn.setAttribute('aria-expanded', String(menuOpen))
+    bar1.style.transform = menuOpen ? 'translateY(6px) rotate(45deg)'   : ''
+    bar2.style.opacity   = menuOpen ? '0'                                : '1'
+    bar3.style.transform = menuOpen ? 'translateY(-6px) rotate(-45deg)' : ''
+  })
+
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menuOpen = false
+      menu.classList.add('hidden')
+      btn.setAttribute('aria-expanded', 'false')
+      bar1.style.transform = bar3.style.transform = ''
+      bar2.style.opacity = '1'
+    })
+  })
+
+  /* ── Search overlay ── */
+  const searchBtn     = document.getElementById('searchBtn')!
+  const searchOverlay = document.getElementById('searchOverlay')!
+  const searchClose   = document.getElementById('searchClose')!
+  const searchInput   = document.getElementById('searchInput') as HTMLInputElement
+
+  const openSearch  = () => {
+    searchOverlay.classList.remove('hidden')
+    searchOverlay.classList.add('flex')
+    setTimeout(() => searchInput.focus(), 50)
+  }
+  const closeSearch = () => {
+    searchOverlay.classList.add('hidden')
+    searchOverlay.classList.remove('flex')
+  }
+
+  searchBtn.addEventListener('click', openSearch)
+  searchClose.addEventListener('click', closeSearch)
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSearch() })
+</script>

@@ -1,0 +1,31 @@
+---
+import BaseLayout   from '../layouts/BaseLayout.astro'
+import Header       from '../components/ui/Header.astro'
+import Footer       from '../components/ui/Footer.astro'
+import Hero         from '../sections/Hero.astro'
+import About        from '../sections/About.astro'
+import Services     from '../sections/Services.astro'
+import Work         from '../sections/Work.astro'
+import Stack        from '../sections/Stack.astro'
+import Contact      from '../sections/Contact.astro'
+import SocialSidebar from '../components/ui/SocialSidebar.astro'
+---
+
+
+<BaseLayout
+  title="Dev Portfolio – Fullstack Developer"
+  description="Desarrollo aplicaciones web modernas, rápidas y escalables. Fullstack developer disponible para proyectos."
+>
+  <Header />
+  <SocialSidebar/>
+  <main id="main-content">
+    <Hero     />
+    <About    />
+    <Services />
+    <Work     />
+    <Stack    />
+    <Contact  />
+  </main>
+
+  <Footer />
+</BaseLayout>

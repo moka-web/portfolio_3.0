@@ -1,0 +1,87 @@
+---
+// src/components/sections/Hero.astro
+// Full-viewport hero with headline, subtext, CTA and atmospheric background.
+---
+
+<section
+  id="hero"
+  aria-label="Hero principal"
+  class="grain relative w-full min-h-[80vh] md:min-h-screen flex items-center overflow-hidden"
+  style="background: radial-gradient(ellipse 65% 80% at 72% 55%, rgba(59,130,246,0.10) 0%, transparent 65%),
+                      radial-gradient(ellipse 40% 45% at 18% 68%, rgba(201,168,76,0.10) 0%, transparent 60%),
+                      #f8fafc;"
+>
+
+  <!-- Decorative vertical line -->
+  <div class="absolute left-8 top-0 bottom-0 w-px bg-gold/10 hidden lg:block"></div>
+
+  <!-- Decorative grid dots -->
+  <div
+    aria-hidden="true"
+    class="absolute inset-0 opacity-[0.025]"
+    style="background-image: radial-gradient(circle, #c9a84c 1px, transparent 1px);
+           background-size: 48px 48px;"
+  ></div>
+
+  <!-- Bottom vignette -->
+  <div
+    aria-hidden="true"
+    class="absolute bottom-0 left-0 right-0 h-48 pointer-events-none z-[2]"
+    style="background: linear-gradient(to bottom, transparent, #f8fafc);"
+  ></div>
+
+  <!-- ── Content ── -->
+  <div class="section-container relative z-10 pt-20 pb-32 md:pt-24 md:pb-32 grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-12 items-center">
+
+    <div class="max-w-4xl">
+
+      <!-- Eyebrow -->
+      <p class="eyebrow animate-fade-up mb-4">
+        <span class="text-cream-dim mr-2">01 /</span> Fullstack Developer
+      </p>
+
+      <!-- Main headline -->
+      <h1 class="heading-xl animate-fade-up-2 mb-6">
+        Construyo<br/>
+        <em class="not-italic text-gold">experiencias</em><br/>
+        digitales.
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="body-text animate-fade-up-3 max-w-xl mb-8 text-[1rem]">
+        Desarrollo aplicaciones web modernas — desde la API hasta la UI — con
+        foco en rendimiento, escalabilidad y diseño que convierte.
+      </p>
+
+      <p class="font-mono text-[0.7rem] uppercase tracking-w3 text-cream-dim mb-10">
+        Disponible para proyectos freelance y remoto.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap items-center gap-4 animate-fade-up-4">
+        <a href="#work"    class="btn-primary">Ver proyectos</a>
+        <a href="#contact" class="btn-outline">Hablemos →</a>
+      </div>
+
+    </div>
+
+    <!-- Right column: stack highlight card -->
+    <div class="hidden lg:flex justify-end">
+      <div class="bg-white/90 border border-gold/40 shadow-[0_18px_45px_rgba(15,23,42,0.14)] rounded-2xl px-6 py-5 max-w-xs">
+        <p class="font-mono text-[0.6rem] uppercase tracking-w3 text-gold mb-3">
+          Stack principal
+        </p>
+        <p class="font-serif text-lg text-cream mb-4 leading-snug">
+          Especializado en productos fullstack<br/>rápidos y escalables.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {['React', 'Node.js', 'TypeScript', 'PostgreSQL'].map(tech => (
+            <span class="skill-pill cursor-default">{tech}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>

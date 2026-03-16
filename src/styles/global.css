@@ -1,0 +1,112 @@
+/* src/styles/global.css */
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Didact+Gothic&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+@config "../../tailwind.config.mjs";
+
+/* ── Base ── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-navy text-cream font-sans overflow-x-hidden;
+  }
+  a {
+    @apply no-underline;
+  }
+  ::-webkit-scrollbar       { width: 4px; }
+  ::-webkit-scrollbar-track { background: #d0d5db; }
+  ::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 2px; }
+}
+
+/* ── Reusable component classes ── */
+@layer components {
+
+  /* Section wrapper */
+  .section-container {
+    @apply max-w-6xl mx-auto px-6 md:px-12;
+  }
+
+  /* Gold thin divider */
+  .divider-gold {
+    @apply w-full h-px;
+    background: linear-gradient(90deg, transparent, #c9a84c44, #c9a84c, #c9a84c44, transparent);
+  }
+
+  /* Section label (eyebrow) */
+  .eyebrow {
+    @apply font-mono text-gold text-[0.65rem] uppercase tracking-w3;
+  }
+
+  /* Primary heading */
+  .heading-xl {
+    @apply font-serif font-semibold text-4xl md:text-6xl leading-[1.05] tracking-w2 uppercase;
+  }
+
+  /* Body text */
+  .body-text {
+    @apply font-sans text-cream-dim text-[0.95rem] leading-relaxed;
+  }
+
+  /* Nav link with gold underline animation */
+  .nav-link {
+    @apply relative font-sans text-[0.68rem] uppercase tracking-[0.18em] text-cream/75
+           hover:text-cream transition-colors duration-300;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-0 right-0 h-px bg-gold;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .nav-link:hover::after { transform: scaleX(1); }
+
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-7 py-3
+           bg-gold text-cream font-sans text-[0.72rem] uppercase tracking-[0.18em] font-bold
+           hover:bg-gold/90 transition-all duration-300;
+  }
+
+  /* Outlined button */
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-7 py-3
+           border border-gold/50 text-gold font-sans text-[0.72rem] uppercase tracking-[0.18em]
+           hover:bg-gold hover:text-cream transition-all duration-300;
+  }
+
+  /* Card base */
+  .card {
+    @apply bg-navy-mid border border-white/[0.07] p-7
+           hover:border-gold/30 hover:-translate-y-1
+           transition-all duration-300;
+  }
+
+  /* Skill / tech pill */
+  .skill-pill {
+    @apply font-mono text-[0.65rem] px-3 py-1
+           border border-white/[0.12] text-cream-dim
+           hover:border-gold/60 hover:text-gold
+           transition-all duration-250;
+  }
+
+  /* Grain noise overlay (used via ::after on hero) */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.038'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Blinking cursor */
+  .cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    margin-left: 1px;
+    color: #c9a84c;
+  }
+}

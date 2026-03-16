@@ -1,0 +1,77 @@
+---
+// src/components/sections/Stack.astro
+
+const categories = [
+  {
+    label: 'Frontend',
+    items: ['React', 'Next.js', 'Astro', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+  },
+  {
+    label: 'Backend',
+    items: ['Node.js', 'Express', 'Fastify', 'REST', 'GraphQL', 'WebSockets'],
+  },
+  {
+    label: 'Bases de datos',
+    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Prisma', 'Drizzle'],
+  },
+  {
+    label: 'DevOps & Tools',
+    items: ['Docker', 'GitHub Actions', 'Railway', 'Vercel', 'AWS', 'Linux'],
+  },
+]
+---
+
+<section id="stack" aria-label="Stack tecnológico" class="py-28 bg-navy-mid/20">
+  <div class="section-container">
+
+    <div class="divider-gold mb-20"></div>
+
+    <!-- Header -->
+    <div class="mb-16">
+      <p class="eyebrow mb-4">
+        <span class="text-cream/40 mr-2">05 /</span> Stack
+      </p>
+      <h2 class="font-serif font-semibold text-3xl md:text-5xl leading-tight tracking-w2 uppercase">
+        Herramientas<br/>
+        <em class="not-italic text-gold">de trabajo.</em>
+      </h2>
+    </div>
+
+    <!-- Grid of categories -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      {categories.map(cat => (
+        <div>
+
+          <!-- Category label -->
+          <p class="font-mono text-[0.6rem] uppercase tracking-w3 text-gold/70 mb-5 pb-3
+                     border-b border-gold/20">
+            {cat.label}
+          </p>
+
+          <!-- Skills -->
+          <ul class="flex flex-wrap gap-2 list-none m-0 p-0">
+            {cat.items.map(item => (
+              <li>
+                <span class="skill-pill cursor-default">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+        </div>
+      ))}
+    </div>
+
+    <!-- Learning now strip -->
+    <div class="mt-16 pt-10 border-t border-white/[0.05]">
+      <p class="font-mono text-[0.6rem] uppercase tracking-w3 text-cream/30 mb-4">
+        Aprendiendo ahora →
+      </p>
+      <div class="flex flex-wrap gap-2">
+        {['Rust', 'Go', 'Kubernetes', 'LLM APIs'].map(item => (
+          <span class="skill-pill border-dashed opacity-50">{item}</span>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
