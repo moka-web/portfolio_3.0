@@ -12,18 +12,21 @@
   
         <!-- Left: headline + info -->
         <div>
-          <p class="eyebrow mb-5">
-            <span class="text-cream/40 mr-2">06 /</span> Contacto
-          </p>
-  
-          <h2 class="font-serif font-semibold text-3xl md:text-5xl leading-tight tracking-w2 uppercase mb-8">
-            Empecemos<br/>
-            <em class="not-italic text-gold">algo juntos.</em>
-          </h2>
-  
-          <p class="body-text max-w-sm mb-10">
-            ¿Tenés un proyecto en mente, una consulta técnica o simplemente querés
-            charlar? Escribime — respondo en menos de 24 hs.
+          <div class="relative overflow-hidden mb-8">
+            <span aria-hidden="true" class="absolute -top-4 right-0 font-serif font-bold text-[8rem] md:text-[11rem] leading-none text-cream/[0.06] select-none pointer-events-none">06</span>
+            <p class="eyebrow mb-5 reveal">
+              <span class="text-cream/40 mr-2">06 /</span> Contacto
+            </p>
+            <h2 class="font-serif font-semibold text-3xl md:text-5xl leading-tight tracking-w2 uppercase reveal reveal-delay-1">
+              Hablemos de<br/>
+              <em class="not-italic text-gold">tu proyecto.</em>
+            </h2>
+          </div>
+
+          <p class="body-text max-w-sm mb-10 reveal reveal-delay-2">
+            ¿Necesitás desarrollar un producto, mejorar un sistema existente o una
+            segunda opinión técnica? Contanos qué tenés en mente — respondemos en
+            menos de 24 hs.
           </p>
   
           <!-- Contact info -->
@@ -57,7 +60,7 @@
         </div>
   
         <!-- Right: form -->
-        <div>
+        <div class="reveal reveal-delay-2">
           <form
             id="contactForm"
             class="space-y-5"
@@ -104,7 +107,7 @@
                 id="subject"
                 name="subject"
                 type="text"
-                placeholder="¿De qué trata tu proyecto?"
+                placeholder="¿Qué querés construir o resolver?"
                 class="bg-navy-mid border border-white/[0.1] text-cream font-sans text-sm px-4 py-3
                        placeholder:text-cream/25 focus:outline-none focus:border-gold/60
                        transition-colors duration-300"
@@ -118,7 +121,7 @@
                 id="message"
                 name="message"
                 rows="5"
-                placeholder="Contame los detalles..."
+                placeholder="Describí el proyecto, el problema o la consulta..."
                 required
                 class="bg-navy-mid border border-white/[0.1] text-cream font-sans text-sm px-4 py-3
                        placeholder:text-cream/25 focus:outline-none focus:border-gold/60

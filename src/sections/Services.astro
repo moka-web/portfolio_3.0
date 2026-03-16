@@ -4,30 +4,30 @@
 const services = [
   {
     number: '01',
-    title: 'Desarrollo Web',
+    title: 'Aplicaciones Web',
     description:
-      'Aplicaciones web completas, desde la base de datos hasta la interfaz. Arquitecturas limpias, escalables y fáciles de mantener.',
+      'Desarrollamos productos web completos con stack moderno — desde la base de datos hasta la interfaz. Código limpio, arquitectura pensada para crecer.',
     tags: ['React', 'Next.js', 'Node.js', 'REST / GraphQL'],
   },
   {
     number: '02',
     title: 'Backend & APIs',
     description:
-      'APIs robustas, seguras y bien documentadas. Diseño de bases de datos, autenticación, integraciones con servicios externos.',
+      'Diseñamos e implementamos APIs robustas, seguras y documentadas. Integraciones con servicios de terceros, autenticación y modelado de datos.',
     tags: ['Express', 'Fastify', 'PostgreSQL', 'Prisma'],
   },
   {
     number: '03',
-    title: 'UI / Frontend',
+    title: 'Frontend & UI',
     description:
-      'Interfaces rápidas, accesibles y con atención al detalle visual. Desde componentes reutilizables hasta design systems completos.',
+      'Interfaces rápidas, responsivas y accesibles. Foco en performance real y experiencia de usuario, no solo en aspecto visual.',
     tags: ['TypeScript', 'Tailwind', 'Astro', 'Framer Motion'],
   },
   {
     number: '04',
-    title: 'Consultoría Técnica',
+    title: 'Consultoría & Rescate',
     description:
-      'Revisión de arquitectura, code reviews, migración de proyectos legacy o simplemente una segunda opinión técnica calificada.',
+      'Revisión de arquitectura, migración de sistemas legacy, optimización de performance o una segunda opinión antes de tomar una decisión técnica crítica.',
     tags: ['Auditoría', 'Refactoring', 'Performance', 'DevOps'],
   },
 ]
@@ -40,25 +40,26 @@ const services = [
 
     <!-- Header -->
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-      <div>
-        <p class="eyebrow mb-4">
+      <div class="relative overflow-hidden">
+        <span aria-hidden="true" class="absolute -top-4 right-0 font-serif font-bold text-[8rem] md:text-[11rem] leading-none text-cream/[0.06] select-none pointer-events-none">03</span>
+        <p class="eyebrow mb-4 reveal">
           <span class="text-cream/40 mr-2">03 /</span> Servicios
         </p>
-        <h2 class="font-serif font-semibold text-3xl md:text-5xl leading-tight tracking-w2 uppercase">
-          ¿En qué puedo<br/>
-          <em class="not-italic text-gold">ayudarte?</em>
+        <h2 class="font-serif font-semibold text-3xl md:text-5xl leading-tight tracking-w2 uppercase reveal reveal-delay-1">
+          Qué<br/>
+          <em class="not-italic text-gold">construimos.</em>
         </h2>
       </div>
       <p class="body-text max-w-sm text-right hidden md:block">
-        Cada proyecto es diferente.<br/>
-        Adaptamos la solución a tu necesidad.
+        Cada proyecto es distinto.<br/>
+        La solución siempre es a medida.
       </p>
     </div>
 
     <!-- Cards grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.05]">
-      {services.map(service => (
-        <article class="card group cursor-default bg-navy">
+      {services.map((service, i) => (
+        <article class={`card group cursor-default bg-navy reveal reveal-delay-${i + 1}`}>
 
           <!-- Number -->
           <p class="font-serif text-5xl text-gold/20 font-semibold mb-6

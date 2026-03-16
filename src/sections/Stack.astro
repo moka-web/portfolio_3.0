@@ -27,20 +27,21 @@ const categories = [
     <div class="divider-gold mb-20"></div>
 
     <!-- Header -->
-    <div class="mb-16">
-      <p class="eyebrow mb-4">
+    <div class="mb-16 relative overflow-hidden">
+      <span aria-hidden="true" class="absolute -top-4 right-0 font-serif font-bold text-[8rem] md:text-[11rem] leading-none text-cream/[0.06] select-none pointer-events-none">05</span>
+      <p class="eyebrow mb-4 reveal">
         <span class="text-cream/40 mr-2">05 /</span> Stack
       </p>
-      <h2 class="font-serif font-semibold text-3xl md:text-5xl leading-tight tracking-w2 uppercase">
-        Herramientas<br/>
-        <em class="not-italic text-gold">de trabajo.</em>
+      <h2 class="font-serif font-semibold text-3xl md:text-5xl leading-tight tracking-w2 uppercase reveal reveal-delay-1">
+        Stack<br/>
+        <em class="not-italic text-gold">moderno.</em>
       </h2>
     </div>
 
     <!-- Grid of categories -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-      {categories.map(cat => (
-        <div>
+      {categories.map((cat, i) => (
+        <div class={`reveal reveal-delay-${i + 1}`}>
 
           <!-- Category label -->
           <p class="font-mono text-[0.6rem] uppercase tracking-w3 text-gold/70 mb-5 pb-3

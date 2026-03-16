@@ -10,48 +10,48 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
   
         <!-- Left: text content -->
-        <div>
-          <p class="eyebrow mb-5">
-            <span class="text-cream/40 mr-2">02 /</span> Sobre mí
+        <div class="relative overflow-hidden">
+          <span aria-hidden="true" class="absolute -top-4 right-0 font-serif font-bold text-[8rem] md:text-[11rem] leading-none text-cream/[0.06] select-none pointer-events-none">02</span>
+
+          <p class="eyebrow mb-5 reveal">
+            <span class="text-cream/40 mr-2">02 /</span> Proceso
           </p>
-  
-          <h2 class="font-serif font-semibold text-3xl md:text-5xl leading-tight tracking-w2 uppercase mb-8">
-            Código con<br/>
-            <em class="not-italic text-gold">propósito.</em>
+
+          <h2 class="font-serif font-semibold text-3xl md:text-5xl leading-tight tracking-w2 uppercase mb-8 reveal reveal-delay-1">
+            Metodología<br/>
+            <em class="not-italic text-gold">sin sorpresas.</em>
           </h2>
-  
-          <div class="space-y-5">
+
+          <div class="space-y-5 mb-12 reveal reveal-delay-2">
             <p class="body-text">
-              Soy desarrollador web fullstack con experiencia construyendo productos
-              digitales desde cero. Me especializo en arquitecturas limpias, APIs
-              robustas e interfaces que los usuarios disfrutan usar.
-            </p>
-            <p class="body-text">
-              Trabajo con startups y empresas que necesitan mover rápido sin
-              sacrificar calidad. Si tenés una idea o un problema técnico que
-              resolver, estoy para ayudarte.
+              En Terranova cada proyecto sigue un proceso estructurado por etapas.
+              Sabés en todo momento en qué estamos, qué sigue y cuándo tenés
+              resultados concretos.
             </p>
           </div>
-  
-          <!-- Stats -->
-          <div class="grid grid-cols-3 gap-6 mt-12 pt-10 border-t border-white/[0.07]">
+
+          <!-- Methodology stages -->
+          <ol class="space-y-5 list-none m-0 p-0 reveal reveal-delay-3">
             {[
-              { num: '3+',  label: 'Años de\nexperiencia' },
-              { num: '20+', label: 'Proyectos\nentregados'  },
-              { num: '100%',label: 'Código\nlimpio'         },
-            ].map(stat => (
-              <div>
-                <p class="font-serif text-3xl text-gold font-semibold">{stat.num}</p>
-                <p class="font-mono text-[0.62rem] text-cream/45 uppercase tracking-widest mt-1 whitespace-pre-line leading-relaxed">
-                  {stat.label}
-                </p>
-              </div>
+              { num: '01', title: 'Descubrimiento',  desc: 'Entendemos el problema, definimos el alcance y establecemos métricas de éxito.' },
+              { num: '02', title: 'Arquitectura',     desc: 'Diseñamos la estructura técnica, elegimos el stack y documentamos las decisiones.' },
+              { num: '03', title: 'Desarrollo',       desc: 'Implementación iterativa con entregas parciales. Feedback continuo, sin cajas negras.' },
+              { num: '04', title: 'Lanzamiento',      desc: 'Deploy, pruebas de producción y handoff completo con documentación.' },
+              { num: '05', title: 'Soporte',          desc: 'Acompañamiento post-lanzamiento, monitoreo y evolución del producto.' },
+            ].map(step => (
+              <li class="flex gap-5 items-start">
+                <span class="font-mono text-[0.6rem] text-gold/50 uppercase tracking-widest pt-1 shrink-0 w-6">{step.num}</span>
+                <div>
+                  <p class="font-serif text-cream text-[0.95rem] uppercase tracking-w2 mb-0.5">{step.title}</p>
+                  <p class="font-sans text-cream/50 text-[0.82rem] leading-relaxed">{step.desc}</p>
+                </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
   
         <!-- Right: decorative card -->
-        <div class="relative hidden lg:block">
+        <div class="relative hidden lg:block reveal reveal-delay-2">
   
           <!-- Background accent -->
           <div class="absolute -inset-4 border border-gold/10"></div>
@@ -60,18 +60,18 @@
   
             <!-- Code snippet decoration -->
             <pre class="font-mono text-[0.7rem] leading-relaxed text-cream/50 select-none"><code
-  ><span class="text-gold/70">const</span> <span class="text-cream/80">developer</span> = &#123;
-    name:     <span class="text-green-400/70">'Dev Placeholder'</span>,
-    role:     <span class="text-green-400/70">'Fullstack Developer'</span>,
-    location: <span class="text-green-400/70">'Buenos Aires, AR'</span>,
-  
+  ><span class="text-gold/70">const</span> <span class="text-cream/80">terranova</span> = &#123;
+    nombre:   <span class="text-green-400/70">'Terranova Software'</span>,
+    tipo:     <span class="text-green-400/70">'Desarrollo web & software'</span>,
+    base:     <span class="text-green-400/70">'Buenos Aires, AR'</span>,
+
     stack: [
       <span class="text-green-400/70">'React'</span>, <span class="text-green-400/70">'Node.js'</span>,
       <span class="text-green-400/70">'TypeScript'</span>, <span class="text-green-400/70">'PostgreSQL'</span>,
     ],
-  
-    available: <span class="text-blue-400/70">true</span>,
-    coffee:    <span class="text-blue-400/70">Infinity</span>,
+
+    abierto:  <span class="text-blue-400/70">true</span>,
+    entregas: <span class="text-green-400/70">'a tiempo'</span>,
   &#125;</code></pre>
   
             <!-- Cursor -->

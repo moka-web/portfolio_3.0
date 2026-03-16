@@ -18,14 +18,14 @@ pnpm preview    # Preview the production build
 
 ## Architecture
 
-**Routing:** `src/pages/` maps directly to URL routes.
+**Routing:** `src/pages/` maps directly to URL routes. Currently a single-page portfolio (`index.astro`).
 
-**Layout pattern:** All pages use `<Layout title="...">` from `src/layouts/Layout.astro`, which renders the `<Navbar />` and a `<slot />` for page content.
+**Layout pattern:** All pages use `<BaseLayout title="..." description="...">` from `src/layouts/BaseLayout.astro`, which sets up the HTML shell (lang, meta, fonts). Page-level components (`Header`, `Footer`, `SocialSidebar`, sections) are composed directly in `index.astro`, not inside the layout.
 
-**Styling approach:** Global styles and component classes live in `src/styles/global.css`, imported via `@import "tailwindcss"`. Navbar uses BEM class naming (`.navbar`, `.navbar__container`, etc.) with a dark Material Design-inspired theme. The `.md-ripple` utility class adds a CSS-only ripple effect on click.
+**Component structure:**
+- `src/components/ui/` — reusable UI pieces (`Header`, `Footer`, `SocialSidebar`)
+- `src/sections/` — full-width page sections composed in `index.astro` order: `Hero → About → Services → Work → Stack → Contact`
+
+**Styling approach:** Global styles and Tailwind live in `src/styles/global.css`, imported in `BaseLayout.astro` via `import '../styles/global.css'` (not a `<link>` tag — avoids 404 in production). Base theme uses `bg-navy` / `text-cream` custom colors. The `.md-ripple` utility class adds a CSS-only ripple effect on click.
 
 **Language:** UI content is in Spanish.
-
-## Current sections
-
-- `Navbar` — sticky, dark gradient app bar with brand logo ("M") and links to `#sobre-mi` and `#servicios`
