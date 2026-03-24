@@ -1,6 +1,8 @@
 ---
 // src/components/sections/Services.astro
 
+const delayClasses = ['reveal-delay-1', 'reveal-delay-2', 'reveal-delay-3', 'reveal-delay-4']
+
 const services = [
   {
     number: '01',
@@ -59,7 +61,7 @@ const services = [
     <!-- Cards grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.05]">
       {services.map((service, i) => (
-        <article class={`card group cursor-default bg-navy reveal reveal-delay-${i + 1}`}>
+        <article class={`card group cursor-default bg-navy reveal ${delayClasses[i] ?? ''}`}>
 
           <!-- Number -->
           <p class="font-serif text-5xl text-gold/20 font-semibold mb-6

@@ -69,7 +69,7 @@
   
             <!-- Name + Email row -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-  
+
               <div class="flex flex-col gap-2">
                 <label for="name" class="eyebrow text-cream/50">Nombre</label>
                 <input
@@ -78,12 +78,18 @@
                   type="text"
                   placeholder="Tu nombre"
                   required
+                  aria-required="true"
+                  aria-invalid="false"
+                  aria-describedby="name-error"
                   class="bg-navy-mid border border-white/[0.1] text-cream font-sans text-sm px-4 py-3
                          placeholder:text-cream/25 focus:outline-none focus:border-gold/60
                          transition-colors duration-300"
                 />
+                <span id="name-error" role="alert" class="hidden font-mono text-[0.6rem] text-red-500">
+                  Campo requerido
+                </span>
               </div>
-  
+
               <div class="flex flex-col gap-2">
                 <label for="email" class="eyebrow text-cream/50">Email</label>
                 <input
@@ -92,14 +98,20 @@
                   type="email"
                   placeholder="tu@email.com"
                   required
+                  aria-required="true"
+                  aria-invalid="false"
+                  aria-describedby="email-error"
                   class="bg-navy-mid border border-white/[0.1] text-cream font-sans text-sm px-4 py-3
                          placeholder:text-cream/25 focus:outline-none focus:border-gold/60
                          transition-colors duration-300"
                 />
+                <span id="email-error" role="alert" class="hidden font-mono text-[0.6rem] text-red-500">
+                  Email inválido o requerido
+                </span>
               </div>
-  
+
             </div>
-  
+
             <!-- Subject -->
             <div class="flex flex-col gap-2">
               <label for="subject" class="eyebrow text-cream/50">Asunto</label>
@@ -113,7 +125,7 @@
                        transition-colors duration-300"
               />
             </div>
-  
+
             <!-- Message -->
             <div class="flex flex-col gap-2">
               <label for="message" class="eyebrow text-cream/50">Mensaje</label>
@@ -123,22 +135,31 @@
                 rows="5"
                 placeholder="Describí el proyecto, el problema o la consulta..."
                 required
+                aria-required="true"
+                aria-invalid="false"
+                aria-describedby="message-error"
                 class="bg-navy-mid border border-white/[0.1] text-cream font-sans text-sm px-4 py-3
                        placeholder:text-cream/25 focus:outline-none focus:border-gold/60
                        transition-colors duration-300 resize-none"
               ></textarea>
+              <span id="message-error" role="alert" class="hidden font-mono text-[0.6rem] text-red-500">
+                Campo requerido
+              </span>
             </div>
-  
+
             <!-- Submit -->
             <button type="submit" class="btn-primary w-full justify-center">
               Enviar mensaje →
             </button>
-  
-            <!-- Feedback message -->
-            <p id="formFeedback" class="font-mono text-[0.65rem] text-green-400/80 tracking-wider hidden">
+
+            <!-- Feedback messages -->
+            <p id="formSuccess" class="hidden font-mono text-[0.65rem] text-green-600/80 tracking-wider">
               ✓ Mensaje enviado — te respondo pronto.
             </p>
-  
+            <p id="formError" class="hidden font-mono text-[0.65rem] text-red-500/80 tracking-wider">
+              ✗ Error al enviar. Intentá de nuevo.
+            </p>
+
           </form>
         </div>
   
@@ -148,14 +169,49 @@
   </section>
   
   <script>
-    // Simple form feedback (replace with real submission logic / Resend / Formspree)
-    const form     = document.getElementById('contactForm') as HTMLFormElement
-    const feedback = document.getElementById('formFeedback')!
-  
+    const form        = document.getElementById('contactForm') as HTMLFormElement
+    const formSuccess = document.getElementById('formSuccess')!
+    const formError   = document.getElementById('formError')!
+
+    const nameInput    = document.getElementById('name')    as HTMLInputElement
+    const emailInput   = document.getElementById('email')   as HTMLInputElement
+    const messageInput = document.getElementById('message') as HTMLTextAreaElement
+    const nameError    = document.getElementById('name-error')!
+    const emailError   = document.getElementById('email-error')!
+    const messageError = document.getElementById('message-error')!
+
+    function validateField(
+      input: HTMLInputElement | HTMLTextAreaElement,
+      errorEl: HTMLElement,
+      check: () => boolean
+    ): boolean {
+      const valid = check()
+      input.setAttribute('aria-invalid', String(!valid))
+      errorEl.classList.toggle('hidden', valid)
+      return valid
+    }
+
     form?.addEventListener('submit', (e) => {
       e.preventDefault()
-      feedback.classList.remove('hidden')
+
+      const nameOk    = validateField(nameInput,    nameError,    () => nameInput.value.trim().length > 0)
+      const emailOk   = validateField(emailInput,   emailError,   () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim()))
+      const messageOk = validateField(messageInput, messageError, () => messageInput.value.trim().length > 0)
+
+      if (!nameOk || !emailOk || !messageOk) return
+
+      // TODO: replace with real Formspree endpoint once account is created
+      // const res = await fetch('https://formspree.io/f/{FORM_ID}', {
+      //   method: 'POST',
+      //   body: new FormData(form),
+      //   headers: { Accept: 'application/json' }
+      // })
+      // if (res.ok) { ... } else { formError.classList.remove('hidden') }
+
+      formSuccess.classList.remove('hidden')
+      formError.classList.add('hidden')
       form.reset()
-      setTimeout(() => feedback.classList.add('hidden'), 5000)
+      ;[nameInput, emailInput, messageInput].forEach(el => el.setAttribute('aria-invalid', 'false'))
+      setTimeout(() => formSuccess.classList.add('hidden'), 5000)
     })
   </script>

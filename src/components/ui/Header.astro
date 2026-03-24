@@ -53,7 +53,7 @@ const navLinks = [
     >
       <p class="font-serif font-semibold text-[2rem] uppercase tracking-w2 leading-tight
                 text-cream group-hover:text-gold transition-colors duration-300">
-                Terranova Software
+                Callvu Software
       </p>
       <p class="font-sans text-[0.52rem] uppercase tracking-w3 text-cream/55 mt-0.5">
         Fullstack Developer
@@ -118,7 +118,7 @@ const navLinks = [
   id="mobileMenu"
   role="navigation"
   aria-label="Menú móvil"
-  class="hidden fixed top-20 left-0 right-0 z-40
+  class="hidden fixed top-20 left-0 right-0 z-50
          bg-navy/98 backdrop-blur-md
          border-b border-gold/20
          py-7 px-8"
@@ -205,6 +205,18 @@ const navLinks = [
       bar1.style.transform = bar3.style.transform = ''
       bar2.style.opacity = '1'
     })
+  })
+
+  /* ── Escape key closes mobile menu ── */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && menuOpen) {
+      menuOpen = false
+      menu.classList.add('hidden')
+      btn.setAttribute('aria-expanded', 'false')
+      bar1.style.transform = bar3.style.transform = ''
+      bar2.style.opacity = '1'
+      btn.focus()
+    }
   })
 
   /* ── Search overlay ── */

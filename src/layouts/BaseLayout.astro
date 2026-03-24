@@ -39,7 +39,7 @@ const {
             observer.unobserve(entry.target)
           }
         }),
-        { threshold: 0.12 }
+        { threshold: 0.25 }
       )
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
     </script>

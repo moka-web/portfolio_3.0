@@ -1,6 +1,8 @@
 ---
 // src/components/sections/Stack.astro
 
+const delayClasses = ['reveal-delay-1', 'reveal-delay-2', 'reveal-delay-3', 'reveal-delay-4']
+
 const categories = [
   {
     label: 'Frontend',
@@ -41,7 +43,7 @@ const categories = [
     <!-- Grid of categories -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
       {categories.map((cat, i) => (
-        <div class={`reveal reveal-delay-${i + 1}`}>
+        <div class={`reveal ${delayClasses[i] ?? ''}`}>
 
           <!-- Category label -->
           <p class="font-mono text-[0.6rem] uppercase tracking-w3 text-gold/70 mb-5 pb-3

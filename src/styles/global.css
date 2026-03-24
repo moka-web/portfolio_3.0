@@ -1,14 +1,11 @@
 /* src/styles/global.css */
 /* ── Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Didact+Gothic&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 @config "../../tailwind.config.mjs";
 
 /* ── Base ── */
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
   body {
     @apply bg-navy text-cream font-sans overflow-x-hidden;
   }
@@ -89,10 +86,13 @@
     @apply font-mono text-[0.65rem] px-3 py-1
            border border-white/[0.12] text-cream-dim
            hover:border-gold/60 hover:text-gold
-           transition-all duration-250;
+           transition-all duration-200;
   }
 
   /* Grain noise overlay (used via ::after on hero) */
+  /* PERF NOTE: SVG fractalNoise filter is rendered on the GPU each frame and adds ~1-2ms
+     to paint time. Consider replacing with a static PNG/WebP asset (≤5 KB) for better
+     performance, especially on low-end mobile devices. */
   .grain::after {
     content: '';
     position: absolute;
@@ -100,6 +100,33 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.038'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 1;
+  }
+
+  /* Hero section background (replaces inline style on <section>) */
+  .hero-bg {
+    background:
+      radial-gradient(ellipse 65% 80% at 72% 55%, rgba(59,130,246,0.10) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 45% at 18% 68%, rgba(201,168,76,0.10) 0%, transparent 60%),
+      #f8fafc;
+  }
+
+  /* Hero decorative grid dots (replaces inline style on aria-hidden div) */
+  .hero-grid-dots {
+    background-image: radial-gradient(circle, #c9a84c 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Hero bottom vignette (replaces inline style on aria-hidden div) */
+  .hero-vignette {
+    background: linear-gradient(to bottom, transparent, #f8fafc);
+  }
+
+  /* BrandMarquee edge fades (replaces inline style attributes) */
+  .marquee-fade-left {
+    background: linear-gradient(to right, #f8fafc, transparent);
+  }
+  .marquee-fade-right {
+    background: linear-gradient(to left, #f8fafc, transparent);
   }
 
   /* Blinking cursor */

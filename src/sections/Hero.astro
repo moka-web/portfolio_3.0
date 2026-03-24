@@ -7,10 +7,7 @@ import BrandMarquee from '../components/ui/BrandMarquee.astro';
 <section
   id="hero"
   aria-label="Hero principal"
-  class="grain relative w-full h-[calc(100vh-80px)] md:h-[calc(100vh-132px)] flex flex-col overflow-hidden"
-  style="background: radial-gradient(ellipse 65% 80% at 72% 55%, rgba(59,130,246,0.10) 0%, transparent 65%),
-                      radial-gradient(ellipse 40% 45% at 18% 68%, rgba(201,168,76,0.10) 0%, transparent 60%),
-                      #f8fafc;"
+  class="hero-bg grain relative w-full h-[calc(100vh-80px)] md:h-[calc(100vh-132px)] flex flex-col overflow-hidden"
 >
 
   <!-- Decorative vertical line -->
@@ -19,16 +16,13 @@ import BrandMarquee from '../components/ui/BrandMarquee.astro';
   <!-- Decorative grid dots -->
   <div
     aria-hidden="true"
-    class="absolute inset-0 opacity-[0.025]"
-    style="background-image: radial-gradient(circle, #c9a84c 1px, transparent 1px);
-           background-size: 48px 48px;"
+    class="hero-grid-dots absolute inset-0 opacity-[0.025]"
   ></div>
 
   <!-- Bottom vignette -->
   <div
     aria-hidden="true"
-    class="absolute bottom-0 left-0 right-0 h-48 pointer-events-none z-[2]"
-    style="background: linear-gradient(to bottom, transparent, #f8fafc);"
+    class="hero-vignette absolute bottom-0 left-0 right-0 h-48 pointer-events-none z-[2]"
   ></div>
 
   <!-- ── Content ── -->
