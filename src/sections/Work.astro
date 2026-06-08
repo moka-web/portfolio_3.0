@@ -1,59 +1,45 @@
 ---
-// src/components/sections/Work.astro
-// Replace placeholder data with your real projects.
-import Icon from '../components/ui/Icon.astro'
+// Propuesta de valor y diferenciación — layout tipo lista (antes proyectos).
 
-interface Project {
-  number:      string
-  title:       string
+interface Pillar {
+  number: string
+  title: string
   description: string
-  tags:        string[]
-  link?:       string
-  github?:     string
-  featured:    boolean
+  tags: string[]
+  featured: boolean
 }
 
-const delayClasses = ['reveal-delay-1', 'reveal-delay-2', 'reveal-delay-3', 'reveal-delay-4']
+const delayClasses = ['reveal-delay-1', 'reveal-delay-2', 'reveal-delay-3']
 
-const projects: Project[] = [
+const pillars: Pillar[] = [
   {
-    number:      '01',
-    title:       'Proyecto Alpha',
-    description: 'Plataforma SaaS para gestión de equipos remotos. Dashboard en tiempo real, autenticación OAuth, roles y permisos granulares.',
-    tags:        ['Next.js', 'Prisma', 'PostgreSQL', 'Stripe'],
-    link:        '#',
-    github:      '#',
-    featured:    true,
+    number: '01',
+    title: 'Diseño centrado en el especialista',
+    description:
+      'A diferencia de los sistemas genéricos, nuestras interfaces están validadas con profesionales de la salud activos: menos fricción en el día a día del consultorio.',
+    tags: ['UX clínica', 'Validación con equipos', 'Menos carga cognitiva'],
+    featured: true,
   },
   {
-    number:      '02',
-    title:       'Proyecto Beta',
-    description: 'E-commerce con catálogo dinámico, carrito persistente e integración con Mercado Pago. Performance 97/100 en Lighthouse.',
-    tags:        ['Astro', 'Tailwind', 'Node.js', 'MongoDB'],
-    link:        '#',
-    github:      '#',
-    featured:    true,
+    number: '02',
+    title: 'Seguridad de grado profesional',
+    description:
+      'Arquitectura senior y prácticas de protección de datos que las soluciones estándar o plantillas tipo WordPress no suelen alcanzar. Tu información sensible merece ese nivel.',
+    tags: ['Cifrado', 'Hardening', 'Buenas prácticas OWASP'],
+    featured: false,
   },
   {
-    number:      '03',
-    title:       'Proyecto Gamma',
-    description: 'API REST para una fintech: transacciones, historial, webhooks y documentación con Swagger. Deploy en Railway.',
-    tags:        ['Fastify', 'TypeScript', 'PostgreSQL', 'Docker'],
-    github:      '#',
-    featured:    false,
-  },
-  {
-    number:      '04',
-    title:       'Proyecto Delta',
-    description: 'Rediseño y migración de sistema legacy a React + microservicios. Reducción del 60 % en tiempo de carga.',
-    tags:        ['React', 'Express', 'Redis', 'AWS'],
-    link:        '#',
-    featured:    false,
+    number: '03',
+    title: 'Impacto operativo y social',
+    description:
+      'Organizamos terapias complejas —por ejemplo infantiles— para que el profesional se concentre en el paciente mientras la tecnología absorbe la logística administrativa.',
+    tags: ['Flujos terapéuticos', 'Eficiencia operativa', 'Tiempo recuperado'],
+    featured: false,
   },
 ]
 ---
 
-<section id="work" aria-label="Proyectos" class="py-28">
+<section id="valor" aria-label="Propuesta de valor" class="py-28">
   <div class="section-container">
 
     <div class="divider-gold mb-20"></div>
@@ -62,84 +48,58 @@ const projects: Project[] = [
     <div class="mb-16 relative">
       <span aria-hidden="true" class="absolute -top-4 right-0 font-serif font-bold text-[8rem] md:text-[11rem] leading-none text-cream/[0.06] select-none pointer-events-none">04</span>
       <p class="eyebrow mb-4 reveal">
-        <span class="text-cream/40 mr-2">04 /</span> Proyectos
+        <span class="text-cream/40 mr-2">04 /</span> Diferenciación
       </p>
       <h2 class="font-serif font-semibold text-3xl md:text-5xl leading-tight tracking-w2 uppercase reveal reveal-delay-1">
-        Proyectos<br/>
-        <em class="not-italic text-gold">entregados.</em>
+        Ingeniería<br/>
+        <em class="not-italic text-gold">+ empatía clínica.</em>
       </h2>
+      <p class="body-text max-w-2xl mt-6 reveal reveal-delay-2">
+        Nuestra ventaja competitiva es la convergencia entre alta ingeniería y comprensión del trabajo real en salud.
+      </p>
     </div>
 
-    <!-- Projects list -->
+    <!-- Pillars list -->
     <div class="space-y-px">
-      {projects.map((project, i) => (
+      {pillars.map((pillar, i) => (
         <article
           class={`group flex flex-col md:flex-row md:items-center gap-6 py-8
                  border-t border-white/[0.07] hover:bg-navy-mid/40 px-0 hover:px-6
                  transition-all duration-300 cursor-default reveal ${delayClasses[i] ?? ''}`}
         >
 
-          <!-- Number -->
           <span class="font-mono text-[0.65rem] text-cream/30 w-10 shrink-0 hidden md:block">
-            {project.number}
+            {pillar.number}
           </span>
 
-          <!-- Title + tags -->
           <div class="flex-1 min-w-0">
             <div class="flex flex-wrap items-center gap-3 mb-2">
               <h3 class="font-serif text-xl tracking-wider uppercase text-cream
                           group-hover:text-gold transition-colors duration-300">
-                {project.title}
+                {pillar.title}
               </h3>
-              {project.featured && (
+              {pillar.featured && (
                 <span class="font-mono text-[0.55rem] uppercase tracking-widest
                               border border-gold/40 text-gold/70 px-2 py-0.5">
-                  Featured
+                  Esencial
                 </span>
               )}
             </div>
-            <p class="body-text text-sm max-w-xl">{project.description}</p>
+            <p class="body-text text-sm max-w-xl">{pillar.description}</p>
             <ul class="flex flex-wrap gap-2 mt-4 list-none m-0 p-0">
-              {project.tags.map(tag => (
+              {pillar.tags.map(tag => (
                 <li><span class="skill-pill">{tag}</span></li>
               ))}
             </ul>
-          </div>
-
-          <!-- Links -->
-          <div class="flex items-center gap-4 shrink-0">
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`GitHub – ${project.title}`}
-                class="text-cream-dim hover:text-gold transition-colors duration-300"
-              >
-                <Icon name="github" class="w-4 h-4" />
-              </a>
-            )}
-            {project.link && (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Ver proyecto – ${project.title}`}
-                class="text-cream-dim hover:text-gold transition-colors duration-300"
-              >
-                <Icon name="external" class="w-4 h-4" />
-              </a>
-            )}
           </div>
 
         </article>
       ))}
     </div>
 
-    <!-- CTA ver más -->
     <div class="mt-14 text-center">
-      <a href="https://github.com" target="_blank" rel="noopener" class="btn-outline">
-        Ver más en GitHub →
+      <a href="https://www.linkedin.com/in/callvu-software" target="_blank" rel="noopener" class="btn-outline">
+        Seguinos en LinkedIn →
       </a>
     </div>
 

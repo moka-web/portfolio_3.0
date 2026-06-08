@@ -5,20 +5,20 @@ const delayClasses = ['reveal-delay-1', 'reveal-delay-2', 'reveal-delay-3', 'rev
 
 const categories = [
   {
-    label: 'Frontend',
-    items: ['React', 'Next.js', 'Astro', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    label: 'Captación y producto',
+    items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'SSR / edge'],
   },
   {
-    label: 'Backend',
-    items: ['Node.js', 'Express', 'Fastify', 'REST', 'GraphQL', 'WebSockets'],
+    label: 'Motor de negocio',
+    items: ['NestJS', 'Node.js', 'REST', 'Webhooks', 'Integraciones oficiales'],
   },
   {
-    label: 'Bases de datos',
-    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Prisma', 'Drizzle'],
+    label: 'Datos y cumplimiento',
+    items: ['PostgreSQL', 'Cifrado en tránsito y reposo', 'Roles y auditoría', 'Backups'],
   },
   {
-    label: 'DevOps & Tools',
-    items: ['Docker', 'GitHub Actions', 'Railway', 'Vercel', 'AWS', 'Linux'],
+    label: 'DevOps',
+    items: ['Docker', 'CI/CD', 'Vercel', 'Observabilidad', 'Infra como código'],
   },
 ]
 ---
@@ -36,7 +36,7 @@ const categories = [
       </p>
       <h2 class="font-serif font-semibold text-3xl md:text-5xl leading-tight tracking-w2 uppercase reveal reveal-delay-1">
         Stack<br/>
-        <em class="not-italic text-gold">moderno.</em>
+        <em class="not-italic text-gold">para salud.</em>
       </h2>
     </div>
 
@@ -67,10 +67,10 @@ const categories = [
     <!-- Learning now strip -->
     <div class="mt-16 pt-10 border-t border-white/[0.05]">
       <p class="font-mono text-[0.6rem] uppercase tracking-w3 text-cream/30 mb-4">
-        Aprendiendo ahora →
+        Explorando e integrando →
       </p>
       <div class="flex flex-wrap gap-2">
-        {['Rust', 'Go', 'Kubernetes', 'LLM APIs'].map(item => (
+        {['FHIR / interoperabilidad', 'Estándares locales de historia clínica', 'LLM asistidos (gobernanza)'].map(item => (
           <span class="skill-pill border-dashed opacity-50">{item}</span>
         ))}
       </div>
