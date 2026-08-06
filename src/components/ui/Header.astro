@@ -4,13 +4,43 @@
 //   Fila 1 (topbar): [MENU ☰]  [Logo centrado]  [SEARCH 🔍]
 //   Fila 2 (nav):    enlaces centrados con underline gold en hover
 
-const navLinks = [
-  { label: 'Nosotros', href: '#about'    },
-  { label: 'Suite',    href: '#services' },
-  { label: 'Valor',    href: '#valor'    },
-  { label: 'Stack',    href: '#stack'    },
-  { label: 'Contacto', href: '#contact'  },
-]
+interface Props {
+  customNavLinks?: { label: string; href: string }[]
+}
+
+const { customNavLinks } = Astro.props
+const { pathname }       = Astro.url
+
+const isFactory = pathname.startsWith('/software-factory')
+const isSalud   = pathname.startsWith('/salud')
+
+let navLinks = customNavLinks
+
+if (!navLinks) {
+  if (isFactory) {
+    navLinks = [
+      { label: 'Servicios',      href: '#factory-services' },
+      { label: 'Diferenciación', href: '#factory-valor'    },
+      { label: 'Stack',          href: '#stack'            },
+      { label: 'Contacto',       href: '#contact'          },
+      { label: 'Salud Digital',  href: '/salud'            },
+    ]
+  } else if (isSalud) {
+    navLinks = [
+      { label: 'Nosotros',         href: '#about'            },
+      { label: 'Suite',            href: '#services'         },
+      { label: 'Valor',            href: '#valor'            },
+      { label: 'Stack',            href: '#stack'            },
+      { label: 'Contacto',         href: '#contact'          },
+      { label: 'Software Factory', href: '/software-factory' },
+    ]
+  } else {
+    navLinks = [
+      { label: 'Salud Digital',    href: '/salud'            },
+      { label: 'Software Factory', href: '/software-factory' },
+    ]
+  }
+}
 ---
 
 <!-- ════════════════════════════════════════
@@ -47,16 +77,16 @@ const navLinks = [
 
     <!-- Center: Brand / Logo -->
     <a
-      href="#hero"
+      href="/"
       aria-label="Callvu – Inicio"
       class="text-center group"
     >
-      <p class="font-serif font-semibold text-[2rem] uppercase tracking-w2 leading-tight
+      <p class="font-serif font-semibold text-[2.2rem] uppercase tracking-w2 leading-tight
                 text-cream group-hover:text-gold transition-colors duration-300">
-                Callvu
+        Callvu<span class="text-gold">.</span>
       </p>
-      <p class="font-sans text-[0.52rem] uppercase tracking-w3 text-cream/55 mt-0.5">
-        Health Suite · Centros de salud
+      <p class="font-sans text-[0.6rem] uppercase tracking-w3 text-cream/55 mt-0.5">
+        Software Studio
       </p>
     </a>
 

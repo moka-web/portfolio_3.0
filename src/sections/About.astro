@@ -2,7 +2,7 @@
 // src/components/sections/About.astro
 ---
 
-<section id="about" aria-label="Enfoque y segmento" class="py-28">
+<section id="about" aria-label="Enfoque y segmento" class="min-h-screen flex flex-col justify-center py-20 bg-glow-gold relative overflow-hidden">
     <div class="section-container">
   
       <div class="divider-gold mb-20"></div>
@@ -17,20 +17,20 @@
             <span class="text-cream/40 mr-2">02 /</span> Nicho
           </p>
 
-          <h2 class="font-serif font-semibold text-3xl md:text-5xl leading-tight tracking-w2 uppercase mb-8 reveal reveal-delay-1">
-            A quién<br/>
-            <em class="not-italic text-gold">acompañamos.</em>
+          <h2 class="font-serif font-semibold text-4xl md:text-6xl leading-tight tracking-w2 uppercase mb-8 reveal reveal-delay-1">
+            A quiénes<br/>
+            <em class="not-italic text-gold">impulsamos.</em>
           </h2>
 
           <div class="space-y-5 reveal reveal-delay-2">
-            <p class="body-text text-[1.05rem]">
-              Trabajamos con centros de salud integral, clínicas de terapias
-              y consultorios que todavía gestionan turnos por WhatsApp,
-              historiales en papel y facturación en planillas sueltas.
+            <p class="body-text text-lg md:text-xl">
+              Acompañamos a organizaciones que requieren desarrollo de software a medida,
+              como así también a centros de salud integral, clínicas y consultorios que buscan
+              digitalizar y profesionalizar sus operaciones.
             </p>
-            <p class="body-text text-[1.05rem]">
-              Esa fricción diaria —un paciente que se pierde, un dato que
-              no aparece— es exactamente lo que venimos a resolver.
+            <p class="body-text text-lg md:text-xl">
+              Esa fricción operativa —sistemas desconectados, datos dispersos y tareas repetitivas—
+              es exactamente lo que transformamos en soluciones sólidas, escalables y mantenibles.
             </p>
           </div>
         </div>
@@ -38,20 +38,20 @@
         <!-- Right: how we help (implementation stages) -->
         <div class="relative reveal reveal-delay-2">
           <div class="bg-navy-mid border border-white/[0.07] border-l-2 border-l-gold/40 p-8 shadow-[0_4px_20px_rgba(201,168,76,0.06)]">
-            <p class="font-mono text-[0.75rem] uppercase tracking-w3 text-gold/70 mb-5">
-              Implementación por etapas
+            <p class="font-mono text-xs md:text-sm uppercase tracking-w3 text-gold/70 mb-5">
+              Metodología de trabajo
             </p>
             <ol class="space-y-5 list-none m-0 p-0">
               {[
-                { num: '01', title: 'Diagnóstico', desc: 'Mapeamos flujo clínico-administrativo y puntos de fricción reales.' },
-                { num: '02', title: 'Diseño modular', desc: 'Priorizamos módulos de Health Suite según impacto y madurez del centro.' },
-                { num: '03', title: 'Entrega y adopción', desc: 'Deploy seguro, capacitación breve y evolución continua del sistema.' },
+                { num: '01', title: 'Diagnóstico & Arquitectura', desc: 'Mapeamos el flujo técnico-operativo de tu negocio y diseñamos la arquitectura idónea.' },
+                { num: '02', title: 'Desarrollo Modular', desc: 'Construimos software custom o desplegamos módulos de nuestra Health Suite por etapas.' },
+                { num: '03', title: 'Deploy & Evolución', desc: 'Despliegue seguro, monitoreo continuo y soporte técnico constante.' },
               ].map(step => (
                 <li class="flex gap-5 items-start">
-                  <span class="font-mono text-[0.7rem] text-gold/50 uppercase tracking-widest pt-1 shrink-0 w-6">{step.num}</span>
+                  <span class="font-mono text-xs md:text-sm text-gold/50 uppercase tracking-widest pt-1 shrink-0 w-6">{step.num}</span>
                   <div>
-                    <p class="font-serif text-cream text-[1.15rem] uppercase tracking-w2 mb-0.5">{step.title}</p>
-                    <p class="font-sans text-cream/50 text-[1rem] leading-relaxed">{step.desc}</p>
+                    <p class="font-serif text-cream text-xl md:text-2xl uppercase tracking-w2 mb-0.5">{step.title}</p>
+                    <p class="font-sans text-cream/60 text-base md:text-lg leading-relaxed">{step.desc}</p>
                   </div>
                 </li>
               ))}

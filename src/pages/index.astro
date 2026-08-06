@@ -1,31 +1,124 @@
 ---
-import BaseLayout   from '../layouts/BaseLayout.astro'
-import Header       from '../components/ui/Header.astro'
-import Footer       from '../components/ui/Footer.astro'
-import Hero         from '../sections/Hero.astro'
-import About        from '../sections/About.astro'
-import Services     from '../sections/Services.astro'
-import Work         from '../sections/Work.astro'
-import Stack        from '../sections/Stack.astro'
-import Contact      from '../sections/Contact.astro'
+import BaseLayout    from '../layouts/BaseLayout.astro'
 import SocialSidebar from '../components/ui/SocialSidebar.astro'
 ---
 
-
 <BaseLayout
-  title="Callvu – Software para centros de salud integral"
-  description="Estudio de desarrollo de software especializado en soluciones digitales a medida para centros de salud integral y profesionales autónomos. Callvu Health Suite: captación, agenda e historia clínica con ingeniería y seguridad de grado profesional."
+  title="Callvu – Software Studio"
+  description="Estudio de ingeniería de software especializado. Desarrollo de software a medida y soluciones integrales para el sector salud."
 >
-  <Header />
-  <SocialSidebar/>
-  <main id="main-content">
-    <Hero     />
-    <About    />
-    <Services />
-    <Work     />
-    <Stack    />
-    <Contact  />
-  </main>
+  <SocialSidebar />
 
-  <Footer />
+  <main id="main-content" class="min-h-screen flex flex-col justify-center hero-bg grain relative overflow-hidden py-16">
+
+    <!-- Decorative grid dots -->
+    <div
+      aria-hidden="true"
+      class="hero-grid-dots absolute inset-0 opacity-[0.025]"
+    ></div>
+
+    <!-- Bottom vignette -->
+    <div
+      aria-hidden="true"
+      class="hero-vignette absolute bottom-0 left-0 right-0 h-48 pointer-events-none z-[2]"
+    ></div>
+
+    <div class="section-container relative z-10 w-full text-center">
+
+      <!-- Eyebrow -->
+      <p class="eyebrow animate-fade-up mb-4 justify-center">
+        <span class="text-cream-dim mr-2">Estudio de Ingeniería /</span> Software & Health Tech
+      </p>
+
+      <!-- Main brand logo centered -->
+      <h1 class="font-serif font-bold text-6xl md:text-8xl lg:text-9xl uppercase tracking-w2 leading-none text-cream mb-3 animate-fade-up-2">
+        Callvu<span class="text-gold">.</span>
+      </h1>
+
+      <p class="font-mono text-sm md:text-base uppercase tracking-w3 text-gold/80 mb-8 animate-fade-up-2">
+        Software Studio
+      </p>
+
+      <p class="body-text max-w-2xl mx-auto text-lg md:text-xl text-center mb-14 animate-fade-up-3">
+        Diseñamos y construimos tecnología de alto impacto. Seleccioná el área o vertical que desees explorar:
+      </p>
+
+      <!-- Two-column portal cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto animate-fade-up-4">
+
+        <!-- Card 1: Salud Digital -->
+        <a
+          href="/salud"
+          class="group relative flex flex-col justify-between text-left p-8 md:p-10 rounded-2xl
+                 bg-navy-mid/60 backdrop-blur-md border border-gold/30 hover:border-gold
+                 hover:-translate-y-2 shadow-[0_10px_35px_rgba(0,0,0,0.3)]
+                 hover:shadow-[0_24px_50px_rgba(201,168,76,0.22)]
+                 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden"
+        >
+          <!-- Subtle hover background glow -->
+          <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-5">
+              <span class="font-mono text-xs uppercase tracking-widest border border-gold/40 text-gold px-3 py-1 rounded-full bg-gold/5 group-hover:bg-gold/15 transition-colors duration-300">
+                Vertical Insignia
+              </span>
+              <span class="font-mono text-sm text-gold/70 group-hover:text-gold group-hover:translate-x-1 transition-all duration-300">01 →</span>
+            </div>
+
+            <h2 class="font-serif text-3xl md:text-4xl uppercase tracking-w2 text-cream mb-4 group-hover:text-gold transition-colors duration-300">
+              Salud Digital
+            </h2>
+
+            <p class="body-text text-base md:text-lg mb-8 text-cream/75 leading-relaxed">
+              Ecosistema integral para centros de salud, clínicas y consultorios. Módulos de captación, agenda inteligente e historia clínica digital.
+            </p>
+          </div>
+
+          <div class="relative z-10 flex items-center gap-3 font-mono text-xs md:text-sm uppercase tracking-widest text-gold group-hover:translate-x-2 transition-transform duration-300">
+            <span>Explorar Salud Digital</span>
+            <span class="text-lg leading-none">→</span>
+          </div>
+        </a>
+
+        <!-- Card 2: Software Factory -->
+        <a
+          href="/software-factory"
+          class="group relative flex flex-col justify-between text-left p-8 md:p-10 rounded-2xl
+                 bg-navy-mid/60 backdrop-blur-md border border-white/10 hover:border-gold
+                 hover:-translate-y-2 shadow-[0_10px_35px_rgba(0,0,0,0.3)]
+                 hover:shadow-[0_24px_50px_rgba(201,168,76,0.22)]
+                 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden"
+        >
+          <!-- Subtle hover background glow -->
+          <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-5">
+              <span class="font-mono text-xs uppercase tracking-widest border border-white/20 text-cream/80 px-3 py-1 rounded-full bg-white/5 group-hover:border-gold/40 group-hover:text-gold group-hover:bg-gold/5 transition-colors duration-300">
+                Desarrollo Custom
+              </span>
+              <span class="font-mono text-sm text-cream/40 group-hover:text-gold group-hover:translate-x-1 transition-all duration-300">02 →</span>
+            </div>
+
+            <h2 class="font-serif text-3xl md:text-4xl uppercase tracking-w2 text-cream mb-4 group-hover:text-gold transition-colors duration-300">
+              Software Factory
+            </h2>
+
+            <p class="body-text text-base md:text-lg mb-8 text-cream/75 leading-relaxed">
+              Desarrollo de software a medida, plataformas web complejas, arquitectura de backend cloud, microservicios e integraciones corporativas.
+            </p>
+          </div>
+
+          <div class="relative z-10 flex items-center gap-3 font-mono text-xs md:text-sm uppercase tracking-widest text-cream/80 group-hover:text-gold group-hover:translate-x-2 transition-all duration-300">
+            <span>Explorar Software Factory</span>
+            <span class="text-lg leading-none">→</span>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+
+  </main>
 </BaseLayout>

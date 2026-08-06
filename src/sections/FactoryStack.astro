@@ -1,24 +1,25 @@
 ---
-// src/components/sections/Stack.astro
+// src/sections/FactoryStack.astro
+// Seccion de stack tecnologico para la landing de Software Factory.
 
 const delayClasses = ['reveal-delay-1', 'reveal-delay-2', 'reveal-delay-3', 'reveal-delay-4']
 
 const categories = [
   {
-    label: 'Captación y producto',
-    items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'SSR / edge'],
+    label: 'Frontend & UI',
+    items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'SSR / SSG'],
   },
   {
-    label: 'Motor de negocio',
-    items: ['NestJS', 'Node.js', 'REST', 'Webhooks', 'Integraciones oficiales'],
+    label: 'Backend & APIs',
+    items: ['NestJS', 'Node.js', 'REST / GraphQL', 'Webhooks', 'Microservicios'],
   },
   {
-    label: 'Datos y cumplimiento',
-    items: ['PostgreSQL', 'Cifrado en tránsito y reposo', 'Roles y auditoría', 'Backups'],
+    label: 'Base de Datos & Cifrado',
+    items: ['PostgreSQL', 'Redis', 'Cifrado en tránsito y reposo', 'ORM / Prisma'],
   },
   {
-    label: 'DevOps',
-    items: ['Docker', 'CI/CD', 'Vercel', 'Observabilidad', 'Infra como código'],
+    label: 'DevOps & Infraestructura',
+    items: ['Docker', 'CI/CD Pipelines', 'AWS / Cloud', 'Observabilidad'],
   },
 ]
 ---
@@ -36,7 +37,7 @@ const categories = [
       </p>
       <h2 class="font-serif font-semibold text-4xl md:text-6xl leading-tight tracking-w2 uppercase reveal reveal-delay-1">
         Stack<br/>
-        <em class="not-italic text-gold">para salud.</em>
+        <em class="not-italic text-gold">tecnológico.</em>
       </h2>
     </div>
 
@@ -70,7 +71,7 @@ const categories = [
         Explorando e integrando →
       </p>
       <div class="flex flex-wrap gap-2">
-        {['FHIR / interoperabilidad', 'Estándares locales de historia clínica', 'LLM asistidos (gobernanza)'].map(item => (
+        {['Arquitectura Event-Driven', 'Edge Computing', 'AI Assistants / RAG'].map(item => (
           <span class="skill-pill border-dashed opacity-50">{item}</span>
         ))}
       </div>

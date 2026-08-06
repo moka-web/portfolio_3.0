@@ -1,0 +1,86 @@
+---
+// src/sections/FactoryHero.astro
+// Hero section for the dedicated Software Factory page.
+---
+
+<section
+  id="factory-hero"
+  aria-label="Software Factory Hero"
+  class="hero-bg grain relative w-full min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-132px)] flex flex-col justify-center overflow-hidden py-16"
+>
+
+  <!-- Decorative vertical line -->
+  <div class="absolute left-8 top-0 bottom-0 w-px bg-gold/10 hidden lg:block"></div>
+
+  <!-- Decorative grid dots -->
+  <div
+    aria-hidden="true"
+    class="hero-grid-dots absolute inset-0 opacity-[0.025]"
+  ></div>
+
+  <!-- Bottom vignette -->
+  <div
+    aria-hidden="true"
+    class="hero-vignette absolute bottom-0 left-0 right-0 h-48 pointer-events-none z-[2]"
+  ></div>
+
+  <!-- ── Content ── -->
+  <div class="flex-1 flex items-center relative z-10 py-6 md:py-12">
+    <div class="section-container w-full grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-12 items-center">
+
+    <div class="max-w-4xl relative">
+      <span aria-hidden="true" class="absolute -top-4 right-0 font-serif font-bold text-[8rem] md:text-[11rem] leading-none text-cream/[0.06] select-none pointer-events-none">SF</span>
+
+      <!-- Eyebrow -->
+      <p class="eyebrow animate-fade-up mb-2 md:mb-4">
+        <span class="text-cream-dim mr-2">Callvu /</span> Software Factory & Custom Studio
+      </p>
+
+      <!-- Main headline -->
+      <h1 class="heading-xl animate-fade-up-2 mb-3 md:mb-6">
+        INGENIERÍA <br/>
+
+        <em class="not-italic text-gold">DE SOFTWARE </em>
+          A MEDIDA
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="body-text animate-fade-up-3 max-w-xl mb-3 md:mb-8 text-lg md:text-xl">
+        Diseñamos y construimos plataformas digitales, sistemas corporativos y productos
+        tecnológicos a medida para empresas y startups. Combinamos rigor de ingeniería,
+        arquitectura senior y entregas continuas.
+      </p>
+
+      <p class="font-mono text-xs md:text-sm uppercase tracking-w3 text-cream-dim mb-4 md:mb-10">
+        Web Apps · Microservicios · Cloud Native · APIs & Integraciones
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap items-center gap-4 animate-fade-up-4">
+        <a href="#factory-services" class="btn-primary">Ver Capacidades</a>
+        <a href="/#contact"          class="btn-outline">Iniciar Proyecto →</a>
+      </div>
+
+    </div>
+
+    <!-- Right column: Factory highlight card -->
+    <div class="hidden lg:flex justify-end">
+      <div class="bg-gradient-to-br from-white to-gold/[0.04] border border-gold/40 shadow-[0_18px_45px_rgba(201,168,76,0.18)] rounded-2xl px-6 py-6 max-w-xs animate-fade-up-3 hover:-translate-y-1 hover:border-gold/70 transition-all duration-400">
+        <p class="font-mono text-xs md:text-sm uppercase tracking-w3 text-gold mb-3">
+          Estándares de Fábrica
+        </p>
+        <p class="font-serif text-2xl text-cream mb-4 leading-snug">
+          Desarrollo iterativo por sprints con control de calidad rígido y documentación técnica.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {['TypeScript', 'Next.js', 'NestJS', 'PostgreSQL', 'Docker'].map(tech => (
+            <span class="skill-pill cursor-default">{tech}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+</section>

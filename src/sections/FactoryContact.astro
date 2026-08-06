@@ -1,8 +1,9 @@
 ---
-// src/components/sections/Contact.astro
+// src/sections/FactoryContact.astro
+// Seccion de contacto para la landing de Software Factory.
 ---
 
-<section id="contact" aria-label="Contacto" class="min-h-screen flex flex-col justify-center py-20 bg-glow-blue relative overflow-hidden">
+<section id="contact" aria-label="Contacto Software Factory" class="min-h-screen flex flex-col justify-center py-20 bg-glow-blue relative overflow-hidden">
     <div class="section-container">
   
       <div class="divider-gold mb-20"></div>
@@ -19,13 +20,12 @@
             </p>
             <h2 class="font-serif font-semibold text-4xl md:text-6xl leading-tight tracking-w2 uppercase reveal reveal-delay-1">
               Hablemos de<br/>
-              <em class="not-italic text-gold">tu centro.</em>
+              <em class="not-italic text-gold">tu proyecto.</em>
             </h2>
           </div>
 
           <p class="body-text max-w-md mb-10 reveal reveal-delay-2 text-base md:text-lg">
-            Si administrás un centro de salud integral, una clínica de terapias o un consultorio
-            y querés dejar atrás el caos manual, contanos tu situación. Respondemos en menos de 24 hs.
+            Si querés desarrollar una aplicación web, un sistema a medida o escalar la capacidad técnica de tu empresa, contanos tu idea. Respondemos en menos de 24 hs.
           </p>
   
           <!-- Contact info -->
@@ -61,7 +61,7 @@
         <!-- Right: form -->
         <div class="reveal reveal-delay-2">
           <form
-            id="contactForm"
+            id="factoryContactForm"
             class="space-y-5"
             novalidate
           >
@@ -95,7 +95,7 @@
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="tu@email.com"
+                  placeholder="tu@empresa.com"
                   required
                   aria-required="true"
                   aria-invalid="false"
@@ -118,7 +118,7 @@
                 id="subject"
                 name="subject"
                 type="text"
-                placeholder="Demo Health Suite, agenda actual, volumen de pacientes…"
+                placeholder="Desarrollo Custom, Backend APIs, Plataforma Web…"
                 class="bg-navy-mid border border-white/[0.1] text-cream font-sans text-base px-4 py-3.5
                        placeholder:text-cream/25 focus:outline-none focus:border-gold/60
                        transition-colors duration-300"
@@ -132,7 +132,7 @@
                 id="message"
                 name="message"
                 rows="5"
-                placeholder="Breve contexto: equipos, dolor operativo y qué te gustaría lograr…"
+                placeholder="Breve detalle de las necesidades de tu proyecto y qué objetivos buscas lograr…"
                 required
                 aria-required="true"
                 aria-invalid="false"
@@ -144,7 +144,7 @@
               <span id="message-error" role="alert" class="hidden font-mono text-xs text-red-500">
                 Campo requerido
               </span>
-            </div>      </div>
+            </div>
 
             <!-- Submit -->
             <button type="submit" class="btn-primary w-full justify-center">
@@ -168,7 +168,7 @@
   </section>
   
   <script>
-    const form        = document.getElementById('contactForm') as HTMLFormElement
+    const form        = document.getElementById('factoryContactForm') as HTMLFormElement
     const formSuccess = document.getElementById('formSuccess')!
     const formError   = document.getElementById('formError')!
 

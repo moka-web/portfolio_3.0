@@ -1,0 +1,102 @@
+---
+// src/sections/FactoryServices.astro
+// Capabilities section for the Software Factory page.
+
+const delayClasses = ['reveal-delay-1', 'reveal-delay-2', 'reveal-delay-3', 'reveal-delay-4']
+
+const capabilities = [
+  {
+    number: '01',
+    title: 'Desarrollo Web & Apps Custom',
+    subtitle: 'Frontend de alta performance',
+    description:
+      'Construcción de aplicaciones web complejas, dashboards interactivos y portales empresariales optimizados para velocidad, accesibilidad y experiencia de usuario superior.',
+    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+  },
+  {
+    number: '02',
+    title: 'Backend & Arquitectura de APIs',
+    subtitle: 'Sistemas distribuidos & datos',
+    description:
+      'Diseño e implementación de servicios Backend altamente disponibles. Lógica de negocio robusta, APIs REST/GraphQL y modelado de bases de datos relacionales y no relacionales.',
+    tags: ['NestJS', 'Node.js', 'PostgreSQL', 'Redis'],
+  },
+  {
+    number: '03',
+    title: 'Integraciones & Cloud Native',
+    subtitle: 'Infraestructura & automatización',
+    description:
+      'Conexión segura con servicios de terceros, pipelines de CI/CD para despliegue automatizado y containerización de servicios para escalabilidad sin interrupciones.',
+    tags: ['Docker', 'AWS / Cloud', 'CI/CD', 'Webhooks'],
+  },
+  {
+    number: '04',
+    title: 'Auditoría & Refactorización',
+    subtitle: 'Calidad & evolución técnica',
+    description:
+      'Revisión profunda de código legado, diagnóstico de performance, resolución de cuellos de botella de base de datos y modernización hacia arquitecturas limpias.',
+    tags: ['Clean Architecture', 'Refactoring', 'Seguridad OWASP', 'QA'],
+  },
+]
+---
+
+<section id="factory-services" aria-label="Capacidades de Software Factory" class="min-h-screen flex flex-col justify-center py-20 bg-glow-blue relative overflow-hidden">
+  <div class="section-container">
+
+    <div class="divider-gold mb-20"></div>
+
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+      <div class="relative">
+        <span aria-hidden="true" class="absolute -top-4 right-0 font-serif font-bold text-[8rem] md:text-[11rem] leading-none text-cream/[0.06] select-none pointer-events-none">CAP</span>
+        <p class="eyebrow mb-4 reveal">
+          <span class="text-cream/40 mr-2">Servicios /</span> Factory & Custom
+        </p>
+        <h2 class="font-serif font-semibold text-4xl md:text-6xl leading-tight tracking-w2 uppercase reveal reveal-delay-1">
+          Nuestras<br/>
+          <em class="not-italic text-gold">capacidades.</em>
+        </h2>
+      </div>
+      <p class="body-text max-w-sm text-right hidden md:block text-base md:text-lg">
+        Soluciones integrales de ingeniería:<br/>
+        desde la arquitectura inicial hasta la producción.
+      </p>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.05]">
+      {capabilities.map((item, i) => (
+        <article class={`card group cursor-default bg-navy reveal ${delayClasses[i] ?? ''}`}>
+
+          <!-- Number -->
+          <p class="font-serif text-6xl text-gold/20 font-semibold mb-4
+                     group-hover:text-gold/35 transition-colors duration-300 leading-none">
+            {item.number}
+          </p>
+
+          <!-- Title -->
+          <h3 class="font-serif text-2xl md:text-3xl tracking-w2 uppercase text-cream mb-1">
+            {item.title}
+          </h3>
+          <p class="font-mono text-xs md:text-sm uppercase tracking-wider text-gold/60 mb-3">
+            {item.subtitle}
+          </p>
+
+          <!-- Description -->
+          <p class="body-text text-base md:text-lg mb-6">{item.description}</p>
+
+          <!-- Tags -->
+          <ul class="flex flex-wrap gap-2 list-none m-0 p-0">
+            {item.tags.map(tag => (
+              <li>
+                <span class="skill-pill">{tag}</span>
+              </li>
+            ))}
+          </ul>
+
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

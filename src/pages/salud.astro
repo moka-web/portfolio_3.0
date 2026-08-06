@@ -1,0 +1,30 @@
+---
+import BaseLayout    from '../layouts/BaseLayout.astro'
+import Header        from '../components/ui/Header.astro'
+import Footer        from '../components/ui/Footer.astro'
+import Hero          from '../sections/Hero.astro'
+import About         from '../sections/About.astro'
+import Services      from '../sections/Services.astro'
+import Work          from '../sections/Work.astro'
+import Stack         from '../sections/Stack.astro'
+import Contact       from '../sections/Contact.astro'
+import SocialSidebar from '../components/ui/SocialSidebar.astro'
+---
+
+<BaseLayout
+  title="Callvu – Salud Digital & Ecosistema para Centros de Salud"
+  description="Estudio de desarrollo de software especializado en soluciones digitales a medida para centros de salud integral y profesionales autónomos. Callvu Health Suite: captación, agenda e historia clínica con ingeniería y seguridad de grado profesional."
+>
+  <Header />
+  <SocialSidebar />
+  <main id="main-content">
+    <Hero     />
+    <About    />
+    <Services />
+    <Work     />
+    <Stack    />
+    <Contact  />
+  </main>
+
+  <Footer />
+</BaseLayout>

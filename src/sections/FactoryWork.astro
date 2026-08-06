@@ -1,5 +1,6 @@
 ---
-// Propuesta de valor y diferenciación — layout tipo lista (antes proyectos).
+// src/sections/FactoryWork.astro
+// Propuesta de valor y diferenciación para la landing de Software Factory.
 
 interface Pillar {
   number: string
@@ -14,32 +15,32 @@ const delayClasses = ['reveal-delay-1', 'reveal-delay-2', 'reveal-delay-3']
 const pillars: Pillar[] = [
   {
     number: '01',
-    title: 'Diseño centrado en el especialista',
+    title: 'Arquitectura Senior & Código Limpio',
     description:
-      'A diferencia de los sistemas genéricos, nuestras interfaces están validadas con profesionales de la salud activos: menos fricción en el día a día del consultorio.',
-    tags: ['UX clínica', 'Validación con equipos', 'Menos carga cognitiva'],
+      'Diseñamos soluciones con principios SOLID y patrones de diseño modernos. Desarrollamos código limpio, modular y completamente libre de deuda técnica improvisada.',
+    tags: ['Clean Architecture', 'Patrones de Diseño', 'Escalabilidad'],
     featured: true,
   },
   {
     number: '02',
-    title: 'Seguridad de grado profesional',
+    title: 'Seguridad & Estándares Enterprise',
     description:
-      'Arquitectura senior y prácticas de protección de datos que las soluciones estándar o plantillas tipo WordPress no suelen alcanzar. Tu información sensible merece ese nivel.',
-    tags: ['Cifrado', 'Hardening', 'Buenas prácticas OWASP'],
+      'Implementamos prácticas estrictas de protección de datos, cifrado en tránsito y en reposo, e integración continua siguiendo pautas OWASP para proteger tu negocio.',
+    tags: ['Cifrado', 'Hardening', 'Estándares OWASP'],
     featured: false,
   },
   {
     number: '03',
-    title: 'Impacto operativo y social',
+    title: 'Entregas Iterativas & Agilidad',
     description:
-      'Organizamos terapias complejas —por ejemplo infantiles— para que el profesional se concentre en el paciente mientras la tecnología absorbe la logística administrativa.',
-    tags: ['Flujos terapéuticos', 'Eficiencia operativa', 'Tiempo recuperado'],
+      'Trabajamos con sprints cortos, demostraciones frecuentes y comunicación transparente. Tenés visibilidad total del progreso técnico y del valor entregado en cada iteración.',
+    tags: ['Sprints Cortos', 'Transparencia', 'CI/CD'],
     featured: false,
   },
 ]
 ---
 
-<section id="valor" aria-label="Propuesta de valor" class="min-h-screen flex flex-col justify-center py-20 bg-glow-gold relative overflow-hidden">
+<section id="factory-valor" aria-label="Diferenciación Software Factory" class="min-h-screen flex flex-col justify-center py-20 bg-glow-gold relative overflow-hidden">
   <div class="section-container">
 
     <div class="divider-gold mb-20"></div>
@@ -51,11 +52,11 @@ const pillars: Pillar[] = [
         <span class="text-cream/40 mr-2">04 /</span> Diferenciación
       </p>
       <h2 class="font-serif font-semibold text-4xl md:text-6xl leading-tight tracking-w2 uppercase reveal reveal-delay-1">
-        Ingeniería<br/>
-        <em class="not-italic text-gold">+ empatía clínica.</em>
+        Rigor técnico<br/>
+        <em class="not-italic text-gold">+ entregas ágiles.</em>
       </h2>
       <p class="body-text max-w-2xl mt-6 reveal reveal-delay-2 text-lg md:text-xl">
-        Nuestra ventaja competitiva es la convergencia entre alta ingeniería y comprensión del trabajo real en salud.
+        Nuestra propuesta combina estándares internacionales de ingeniería con una metodología de trabajo flexible orientada a resultados de negocio.
       </p>
     </div>
 
@@ -81,7 +82,7 @@ const pillars: Pillar[] = [
               {pillar.featured && (
                 <span class="font-mono text-xs uppercase tracking-widest
                               border border-gold/40 text-gold/70 px-2 py-0.5">
-                  Esencial
+                  Fundamental
                 </span>
               )}
             </div>
